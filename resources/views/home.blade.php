@@ -31,44 +31,44 @@
                 </div>
             </form>
 
-            @foreach($jobs as $job)
+            @foreach($items as $item)
                 <div class="card card-default">
                     <div class="card-header">
-                        <b>{{ $job->job_title }}</b><br/>
+                        <b>{{ $item->job_title }}</b><br/>
                         
-                            <span style="color: red;">Last Published to Email {{ json_decode($job->emails) }}</span>
+                            <span style="color: red;">Last Published to Email {{ json_decode($item->emails) }}</span>
                       
                         <div class="delete">
-                            <a href="/job/delete/{{$job->id}}">Delete</a>
+                            <a href="/job/delete/{{$item->id}}">Delete</a>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="job">
                             <div class="heading">
-                                {{ $job->post_date}}<br/>
-                                {{ $job->source }}
+                                {{ $item->post_date}}<br/>
+                                {{ $item->source }}
                             </div>
                             <div class="info">
-                                <a href="{{ $job->url }}">URL Link</a> <br/>
+                                <a href="{{ $item->url }}">URL Link</a> <br/>
                             </div>
                             <div class="tags">
                                 Tech Tags: 
-                                @if(!empty($job->tech_tags))
-                                    @foreach($job->tech_tags as $tag)
+                                @if(!empty($item->tech_tags))
+                                    @foreach($item->tech_tags as $tag)
                                         <span class="tag">{{ $tag }}</span>
                                     @endforeach 
                                 @endif
 
                                 <br/>
                                 Type Tags: 
-                                @if(!empty($job->position_tags))
-                                    @foreach($job->position_tags as $tag)
+                                @if(!empty($item->position_tags))
+                                    @foreach($item->position_tags as $tag)
                                         <span class="tag">{{ $tag }}</span>
                                     @endforeach 
                                 @endif
                             </div>
                             <div class="actions">
-                                <a target="blank" href="/job/emailedit/{{ $job->id }}">Edit & Publish</a>
+                                <a target="blank" href="/job/emailedit/{{ $item->id }}">Edit & Publish</a>
                             </div>
                         </div>
                     </div>

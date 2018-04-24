@@ -107,28 +107,7 @@ class SourcesController extends Controller
     }
 
 
-     /**
-     * Execute Source - Pull from Google Sheet and run Scraper
-     *
-     * @return boolean
-     */
-    public function executeSource($id)
-    {
-
-        $source = Source::where('id', $id)->first();
-
-        $execute = $this->readSheet($source);
-        $scrapeSource = $this->scrapeSource($source);
-
-
-        if( $scrapeSource )
-        {
-            return redirect()->back()->with(['success' => 'Success, following Jobs were added and scraped: '.$scrapeSource ]);
-        } else {
-            return redirect()->back()->with(['fail' => 'Source could not be executed']);
-        }
-    
-    }
+     
 
 
 

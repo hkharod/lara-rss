@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
-class Job extends Model
+class Item extends Model
 {   
 
     // Laravel Scout Driver

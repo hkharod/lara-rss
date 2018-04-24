@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Job;
+use App\Item;
 use App\Source;
 use Feeds;
 use Carbon\Carbon;
@@ -13,7 +13,7 @@ class FeedsController extends Controller
     
 
     /**
-     * Parse feed with SimplePie Laravel library and save job.
+     * Parse feed with SimplePie Laravel library and save item.
      *
      * @return void
      */
@@ -23,35 +23,29 @@ class FeedsController extends Controller
         $source = Source::where('id', $id)->first();
 
         //Get the existing urls for this source to avoid duplicates
-        $jobs = Job::where('source', $source->title)->select('url')->get();
+        $jobs = Item::where('source', $source->title)->select('url')->get();
 
         $ex_urls = array();
 
-        foreach($jobs as $job)
+        foreach($items as $item)
         {
-            array_push($ex_urls, $job->url);
+            array_push($ex_urls, $item->url);
         }
 
     	$feed = Feeds::make($source->rss_url);
 
-        // echo '<pre>';
-        // print_r($ex_urls);
 
-    	foreach( $feed->get_items(0, 20) as $item )
+    	foreach( $feed->get_items(0, 20) as $single )
     	{
     		
-            $var = substr($item->get_date(), 0, strpos($item->get_date(), ",")); 
+            $var = substr($single->get_date(), 0, strpos($single->get_date(), ",")); 
             $date = strtotime($var);
             $post_date = date('Y-m-d', $date);
-            $job_title = $item->get_title();
-            $job_html = $item->get_description();
-            $url = $item->get_link();
+            $item_title = $single->get_title();
+            $job_html = $single->get_description();
+            $url = $single->get_link();
 
-            // echo $var .'<br/>';
-            // echo '<pre>';
-            // print_r($item);
-            
-            //If it doesn't exist in existing jobs, save it
+
             if( !in_array($url, $ex_urls) )
             {
                 $job = new Job;
@@ -63,7 +57,6 @@ class FeedsController extends Controller
 
                 $job->save(); 
 
-                //echo 'saved';
             }
 
     	}
@@ -72,8 +65,6 @@ class FeedsController extends Controller
         $source->save();
 
         echo 'complete';
-	    		
-        //$date = Carbon::parse(date_format($date,'d m Y'));
     }
 
 
