@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="51px" height="74px" viewBox="0 0 51 74" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>lock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Pro" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-300.000000, -4926.000000)">
+        <g id="limited-to-10-developers" transform="translate(-261.000000, 3983.000000)" fill="#2E2844" fill-rule="nonzero" stroke="#3D355A" stroke-width="5">
+            <g id="calendar" transform="translate(290.000000, 718.000000)">
+                <g id="calendar-third-months" transform="translate(2.000000, 228.000000)">
+                    <g id="Group" transform="translate(272.000000, 0.000000)">
+                        <g id="lock">
+                            <path d="M41.625,27.2 L40.5,27.2 L40.5,13.6 C40.5,6.10186667 34.443,0 27,0 L18,0 C10.557,0 4.5,6.10186667 4.5,13.6 L4.5,27.2 L3.375,27.2 C1.51875,27.2 0,28.73 0,30.6 L0,64.6 C0,66.47 1.51875,68 3.375,68 L41.625,68 C43.48125,68 45,66.47 45,64.6 L45,30.6 C45,28.73 43.48125,27.2 41.625,27.2 Z M13.5,13.6 C13.5,11.0998667 15.51825,9.06666667 18,9.06666667 L27,9.06666667 C29.48175,9.06666667 31.5,11.0998667 31.5,13.6 L31.5,27.2 L13.5,27.2 L13.5,13.6 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

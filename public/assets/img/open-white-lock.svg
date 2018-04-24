@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="73px" height="73px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>unlocked</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Pro" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-29.000000, -4701.000000)">
+        <g id="limited-to-10-developers" transform="translate(-261.000000, 3983.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="calendar" transform="translate(290.000000, 718.000000)">
+                <g id="calendar-first-months">
+                    <g id="unlocked">
+                        <path d="M58.4,0 C66.4494667,0 73,6.55053333 73,14.6 L73,29.2 L63.2666667,29.2 L63.2666667,14.6 C63.2666667,11.9160333 61.0839667,9.73333333 58.4,9.73333333 L48.6666667,9.73333333 C45.9827,9.73333333 43.8,11.9160333 43.8,14.6 L43.8,29.2 L45.0166667,29.2 C47.0241667,29.2 48.6666667,30.8425 48.6666667,32.85 L48.6666667,69.35 C48.6666667,71.3575 47.0241667,73 45.0166667,73 L3.65,73 C1.6425,73 0,71.3575 0,69.35 L0,32.85 C0,30.8425 1.6425,29.2 3.65,29.2 L34.0666667,29.2 L34.0666667,14.6 C34.0666667,6.55053333 40.6172,0 48.6666667,0 L58.4,0 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
