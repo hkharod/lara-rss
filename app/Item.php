@@ -8,18 +8,8 @@ use Laravel\Scout\Searchable;
 class Item extends Model
 {   
 
-    // Laravel Scout Driver
+    //Laravel Scout Driver
     //use Searchable;
     
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'position_tags' => 'array',
-        'remote_tags' => 'array',
-        'tech_tags' => 'array',
-        'emails' => 'array'
-    ];
+
 }

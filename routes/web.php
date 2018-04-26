@@ -12,37 +12,46 @@
 */
 
 
-//Public Welcome Page
+/*
+| -------------------------------------------------------
+| Public Routes
+| -------------------------------------------------------
+*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-//Authentication Scaffold Routes
+/*
+| -------------------------------------------------------
+| Authentication Scaffold
+| -------------------------------------------------------
+*/
 
 Auth::routes();
 
 
-//Project Home 
+/*
+| -------------------------------------------------------
+| Item Routes & User Home
+| -------------------------------------------------------
+*/
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-//Job Actions
-
-Route::get('/job/edit/{id}', 'HomeController@editJob');
-Route::get('/job/delete/{id}', 'HomeController@deleteJob');
-Route::post('/job/publish/', 'HomeController@publishJob');
-Route::post('/search', 'HomeController@search');
-Route::get('/job/emailedit/{id}', 'HomeController@emailEdit');
-Route::post('/job/emailpublish', 'HomeController@emailPublish');
+Route::get('/home', 'ItemsController@index');
+Route::get('/job/edit/{id}', 'ItemsController@editJob');
+Route::get('/job/delete/{id}', 'ItemsController@deleteJob');
+Route::post('/search', 'ItemsController@search');
 
 
-//Source Actions
+/*
+| -------------------------------------------------------
+| Source Routes
+| -------------------------------------------------------
+*/
 
-Route::get('/read', 'HomeController@readFile');
-Route::get('/extract', 'HomeController@extract');
+Route::get('/read', 'ItemsController@readFile');
+Route::get('/extract', 'ItemsController@extract');
 Route::get('/sources', 'SourcesController@index');
 Route::post('/source/add', 'SourcesController@saveSource'); 
 Route::post('/source/get', 'SourcesController@getSource'); /*Ajax Route*/
@@ -52,9 +61,12 @@ Route::get('/feeds/{id}', 'FeedsController@runFeed');
 
 
 
-//Test Controller 
+/*
+| -------------------------------------------------------
+| Test Routes
+| -------------------------------------------------------
+*/
 
 //Test Goutte
 Route::get('/scrapetest', 'TestController@scrapeTest');
 
-//Test Feeds

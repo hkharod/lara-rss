@@ -6,14 +6,9 @@ use Illuminate\Http\Request;
 use App\Item;
 use App\Source;
 
-class HomeController extends Controller
+class ItemsController extends Controller
 {
     
-    /**
-     * This Controller handles everything related to individual Jobs including publishing, searching and displaying
-     *
-     */
-
 
     /**
      * Create a new controller instance.
@@ -35,12 +30,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $items = Item::select('id', 'source', 'job_title', 'post_date', 'url', 'status', 'tech_tags', 'position_tags')->get();
-
-        foreach($items as $item){
-            $item->tech_tags = json_decode($item->tech_tags);
-            $item->position_tags = json_decode($item->position_tags);
-        }
+        $items = Item::select('id', 'source_title', 'title', 'post_date', 'link', 'post_date')->get();
 
         return view('home', compact('items'));
     }

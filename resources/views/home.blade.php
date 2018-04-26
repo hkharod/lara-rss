@@ -20,7 +20,7 @@
             @endif
 
             <div class="form-group">
-                <a class="btn btn-primary" href="/job/emailedit/new">Publish New Job</a>
+                <a class="btn btn-primary" href="/sources">Add New RSS Source</a>
             </div>
             
             <form method="POST" action="/search">
@@ -34,9 +34,8 @@
             @foreach($items as $item)
                 <div class="card card-default">
                     <div class="card-header">
-                        <b>{{ $item->job_title }}</b><br/>
+                        <b>{{ $item->title }}</b><br/>
                         
-                            <span style="color: red;">Last Published to Email {{ json_decode($item->emails) }}</span>
                       
                         <div class="delete">
                             <a href="/job/delete/{{$item->id}}">Delete</a>
@@ -46,29 +45,13 @@
                         <div class="job">
                             <div class="heading">
                                 {{ $item->post_date}}<br/>
-                                {{ $item->source }}
+                                {{ $item->source_title }}
                             </div>
                             <div class="info">
-                                <a href="{{ $item->url }}">URL Link</a> <br/>
-                            </div>
-                            <div class="tags">
-                                Tech Tags: 
-                                @if(!empty($item->tech_tags))
-                                    @foreach($item->tech_tags as $tag)
-                                        <span class="tag">{{ $tag }}</span>
-                                    @endforeach 
-                                @endif
-
-                                <br/>
-                                Type Tags: 
-                                @if(!empty($item->position_tags))
-                                    @foreach($item->position_tags as $tag)
-                                        <span class="tag">{{ $tag }}</span>
-                                    @endforeach 
-                                @endif
+                                <a href="{{ $item->link }}">URL Link</a> <br/>
                             </div>
                             <div class="actions">
-                                <a target="blank" href="/job/emailedit/{{ $item->id }}">Edit & Publish</a>
+                                <a target="blank" href="/job/emailedit/{{ $item->id }}">View</a>
                             </div>
                         </div>
                     </div>

@@ -1,11 +1,4 @@
-$(document).ready(function() {
-                
-    // $('#mainTable').DataTable( {
-    //     "order": [[ 8, "desc" ]],
-    //     "lengthMenu": [[50, 100, 150, -1], [50, 100, 150, "All"]]
-    // } );
-
-});
+/*Sources JS*/
 
 function getSource(sourceId){
     console.log(sourceId);
@@ -26,7 +19,6 @@ function ajaxSource(sourceId) {
             console.log(payload);
             $('#id').val( payload['id'] );
             $('#title').val( payload['title'] );
-            $('#sheet-id').val( payload['google_sheet_id'] );
             $('#rss-url').val( payload['rss_url'] );
             $('#type').val( payload['type'] );
         },
