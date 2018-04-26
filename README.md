@@ -1,5 +1,6 @@
 # Lara RSS
 
+
 ## Introduction
 
 Lara RSS is a RSS Feed Reader built on Laravel. 
@@ -57,6 +58,8 @@ From this page, you'll be able to manually execute the extraction of your RSS so
 ### Items
 The Item model will store all of your extracted feed items. This model can be made to be "Searchable" by adding `use Searchable;` to the Item model in `App\Item`
 
+Searchable will automatically sync all your item data to your Algolia account upon save.
+
 The User Homepage will display your latest feed items. 
 
 ![Lara RSS Sources](http://harbind.com/img/LaraRSS-Home.png)
@@ -66,5 +69,7 @@ The User Homepage will display your latest feed items.
 The SourcesController comes with a SourceActions trait where you can add your own methods to run before or after a source is executed. 
 
 The method `ExecuteSource($id)` in the SourcesController currently uses the lone feedRun trait method to extract feed data for a specific source.
+
+To make changes to the way sources are extracted take a look at the Simple Pie API Documentation [here](http://simplepie.org/api/class-SimplePie_Item.html)
 
 
