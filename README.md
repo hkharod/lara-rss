@@ -45,8 +45,26 @@ By default, Laravel Scout ships with an Algolia driver for full-text search capa
 
 The application comes with user authentication so start by registering an account. 
 
-Start by adding a RSS Source with a title and a valid RSS URL.
-![Lara RSS Sources](http://harbind.com/img/LaraRSS-Sources.png)
+### Sources
+The Source Model will house all your RSS Feed sources.
 
+Start by adding a RSS Source with a title and a valid RSS URL.
+![Lara RSS Sources](http://harbind.com/img/LaraRSS-Sources1.png)
+
+From this page, you'll be able to manually execute the extraction of your RSS sources and see when they were last updated. 
+
+
+### Items
+The Item model will store all of your extracted feed items. This model can be made to be "Searchable" by adding `use Searchable;` to the Item model in `App\Item`
+
+The User Homepage will display your latest feed items. 
+
+![Lara RSS Sources](http://harbind.com/img/LaraRSS-Home.png)
+
+
+### SourcesController and SourceActions trait
+The SourcesController comes with a SourceActions trait where you can add your own methods to run before or after a source is executed. 
+
+The method `ExecuteSource($id)` in the SourcesController currently uses the lone feedRun trait method to extract feed data for a specific source.
 
 
