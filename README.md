@@ -13,7 +13,7 @@ This application will help kick start development for projects that require the 
 
 ### Requirements
 
-This application is built on Laravel 5.6 so you will need a server or local environment that can support it's requirements. For full details visit [link to Laravel](https://laravel.com/docs/5.6)
+This application is built on Laravel 5.6 so you will need a server or local environment that can support it's requirements. For full details visit the [Laravel Documentation](https://laravel.com/docs/5.6)
 
 * Server with PHP >= 7.1.3
   - OpenSSL PHP Extension
@@ -35,10 +35,18 @@ This application is built on Laravel 5.6 so you will need a server or local envi
 
 ## Usage
 
+This project makes use of Laravel Scout, Laravel 5 Feeds by Will Vincent and the Simple Pie PHP Library. 
 
+### Algolia Search
 
+By default, Laravel Scout ships with an Algolia driver for full-text search capabilities. Please check the `.env.example` file for the credentials you will need if you will be using Algolia. You can create a free account [here](https://www.algolia.com/). You can add up to 10,000 records for free with Algolia. Another option is to swap out the Algolia driver and use Elastic Search which is open source but will have server requirements.
 
+### The Basics
 
+The application comes with user authentication so start by registering an account. 
+
+Start by adding a RSS Source with a title and a valid RSS URL.
+![Lara RSS Sources](http://harbind.com/img/LaraRSS-Sources.png)
 
 
 
