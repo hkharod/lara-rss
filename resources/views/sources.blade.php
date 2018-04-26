@@ -31,7 +31,6 @@
 				      <th scope="col">#</th>
 				      <th scope="col">Name</th>
 				      <th scope="col">Last Run</th>
-				      <th scope="col">Last Status</th>
 				      <th scope="col"></th>
 				      <th scope="col"></th>
 				    </tr>
@@ -47,7 +46,6 @@
 					      <td>{{ $source->id }}</td>
 					      <td>{{ $source->title }}</td>
 					      <td>{{ $source->last_run }}</td>
-					      <td>Last Status</td>
 					      <td><a href="javascript:void(0)" onclick="getSource({{ $source->id }})">Edit</a></td>
 					      <td><a href="/feeds/{{$source->id}}">Run</a></td>
 					    </tr>

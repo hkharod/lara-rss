@@ -22,8 +22,8 @@ class FeedsController extends Controller
 
         $source = Source::where('id', $id)->first();
 
-        //Get the existing urls for this source to avoid duplicates
-        $jobs = Item::where('source', $source->title)->select('url')->get();
+        //Get the existing urls for this source to avoid duplicates.
+        $items = Item::where('source_id', $source->id)->select('link')->get();
 
         $ex_urls = array();
 
@@ -34,37 +34,44 @@ class FeedsController extends Controller
 
     	$feed = Feeds::make($source->rss_url);
 
-
     	foreach( $feed->get_items(0, 20) as $single )
     	{
     		
-            $var = substr($single->get_date(), 0, strpos($single->get_date(), ",")); 
-            $date = strtotime($var);
+            //Change post_date to consistent format
+            $raw_date = substr($single->get_date(), 0, strpos($single->get_date(), ",")); 
+            $date = strtotime($raw_date);
             $post_date = date('Y-m-d', $date);
-            $item_title = $single->get_title();
-            $job_html = $single->get_description();
-            $url = $single->get_link();
+            
+            $title = $single->get_title();
+            $description = $single->get_description();
+            $link = $single->get_link();
+            $category = $single->get_category()->get_label();
+            $author = $single->get_author()->get_name();
 
-
-            if( !in_array($url, $ex_urls) )
-            {
-                $job = new Job;
-                $job->source = $source->title;
-                $job->post_date = $post_date;
-                $job->job_title = $job_title;
-                $job->job_html = $job_html;
-                $job->url = $url;
-
-                $job->save(); 
-
+            if( !in_array($link, $ex_urls) )
+            {         
+                $item = New Item;
+                $item->source_id = $source->id;
+                $item->source_title = $source->title;
+                $item->title = $title;
+                $item->description = $description;
+                $item->link = $link;
+                $item->post_date = $post_date;
+                $item->category = $category;
+                $item->author = $author;
+        
+                $item->save(); 
             }
-
     	}
 
         $source->last_run = date("Y-m-d");
-        $source->save();
 
-        echo 'complete';
+        if( $source->save() )
+        {
+            return redirect()->back()->with(['success' => 'Feed Successfully Executed']);
+        } else {
+            return redirect()->back()->with(['fail' => 'Feed could not be executed']);
+        }
     }
 
 
