@@ -102,6 +102,28 @@ class SourcesController extends Controller
     }
 
 
+    /**
+     * Delete Source
+     *
+     * @return boolean
+     */
+    public function deleteSource(Request $request)
+    {
+
+        $id = $request->id;
+
+        $source = Source::where('id', $id)->first();
+
+        if( $source->delete() )
+        {
+            return redirect()->back()->with(['success' => 'Source deleted successfully']);
+        } else {
+            return redirect()->back()->with(['fail' => 'Source could not be deleted']);
+        }
+    
+    }
+
+
      
 
 

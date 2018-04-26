@@ -56,6 +56,7 @@ Route::get('/sources', 'SourcesController@index');
 Route::post('/source/add', 'SourcesController@saveSource'); 
 Route::post('/source/get', 'SourcesController@getSource'); /*Ajax Route*/
 Route::post('/source/edit', 'SourcesController@editSource');
+Route::post('/source/delete', 'SourcesController@deleteSource');
 Route::get('/source/exec/{id}', 'SourcesController@executeSource');
 Route::get('/feeds/{id}', 'FeedsController@runFeed');
 

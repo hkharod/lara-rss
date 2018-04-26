@@ -20,7 +20,7 @@ function ajaxSource(sourceId) {
             $('#id').val( payload['id'] );
             $('#title').val( payload['title'] );
             $('#rss-url').val( payload['rss_url'] );
-            $('#type').val( payload['type'] );
+            $('#delete-id').val( payload['id'] );
         },
         error: function (error) {
           console.log(error);

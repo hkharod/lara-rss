@@ -37,6 +37,11 @@
 				    </tr>
 				  </thead>
 				  <tbody>
+				  	@if($sources->isEmpty())
+				  		<tr>
+							<td>No Sources</td>
+						</tr>
+				  	@endif
 				  	@foreach($sources as $source)
 					    <tr>
 					      <td>{{ $source->id }}</td>
@@ -60,10 +65,10 @@
 	                </div>
 	                <div class="card-body">
 	                	<div class="form-group">
-	                		<input type="text" class="form-control" name="title" placeholder="Title of Source"/>
+	                		<input type="text" class="form-control" name="title" placeholder="Title of Source" required/>
 	                	</div>
 	                	<div class="form-group">
-	                		<input type="text" class="form-control" name="rss_url" placeholder="RSS Feed URL"/>
+	                		<input type="text" class="form-control" name="rss_url" placeholder="RSS Feed URL" required/>
 	                	</div>
 	                	<button type="submit" class="btn btn-success">Add Source</button>
 	                </div>
@@ -78,7 +83,6 @@
 <div class="modal" tabindex="-1" role="dialog" id="edit-source">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-    	<form method="post" action="/source/edit">
 	      <div class="modal-header">
 	        <h5 class="modal-title">Edit Source</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -86,26 +90,31 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
+	      	<form method="post" action="/source/edit">
 				{{ csrf_field() }}
 
 				<input type="hidden" id="id" name="id"/>
 	           
             	<div class="form-group">
-            		<input type="text" class="form-control" name="title" placeholder="Title of Source" id="title"/>
+            		<input type="text" class="form-control" name="title" placeholder="Title of Source" id="title" required/>
             	</div>
             	<div class="form-group">
-            		<input type="text" class="form-control" name="rss_url" placeholder="RSS Feed URL" id="rss-url"/>
+            		<input type="text" class="form-control" name="rss_url" placeholder="RSS Feed URL" id="rss-url" required/>
             	</div>
-	            
+
+            	<button type="submit" class="btn btn-success">Save changes</button>
+	        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        </form>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="submit" class="btn btn-success">Save changes</button>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <form method="post" action="/source/delete">
+		    	{{ csrf_field() }}
+		    	<input type="hidden" id="delete-id" name="id"/>
+		    	<button type="submit" class="btn btn-danger">Delete</button>
+		    </form>
 	      </div>
-	    </form>
     </div>
   </div>
 </div>
-
 
 @endsection
