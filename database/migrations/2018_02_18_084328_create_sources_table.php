@@ -19,7 +19,6 @@ class CreateSourcesTable extends Migration
             $table->string('rss_url')->nullable();
             $table->string('last_run')->nullable();
             $table->string('last_status')->nullable();
-            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

@@ -64,11 +64,6 @@ class ItemsController extends Controller
 
         $items = Item::search($request->search)->get(); 
 
-        foreach($items as $item){
-            $item->tech_tags = json_decode($item->tech_tags);
-            $item->position_tags = json_decode($item->position_tags);
-        }
-
         $data = array('items' => $items, 'term' => $request->search);
 
         return view('search', compact('data'));

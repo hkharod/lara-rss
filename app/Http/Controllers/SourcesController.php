@@ -65,9 +65,7 @@ class SourcesController extends Controller
     	$source = New Source;
 
     	$source->title = $request->title;
-    	$source->google_sheet_id = $request->google_sheet_id;
     	$source->rss_url = $request->rss_url;
-        $source->type = $request->type;
 
     	if( $source->save() )
     	{
@@ -92,10 +90,7 @@ class SourcesController extends Controller
         $source = Source::where('id', $id)->first();
 
         $source->title = $request->title;
-        $source->google_sheet_id = $request->google_sheet_id;
         $source->rss_url = $request->rss_url;
-        $source->type = $request->type;
-
 
         if( $source->save() )
         {

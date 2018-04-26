@@ -32,7 +32,6 @@
 				      <th scope="col">Name</th>
 				      <th scope="col">Last Run</th>
 				      <th scope="col">Last Status</th>
-				      <th scope="col">Type</th>
 				      <th scope="col"></th>
 				      <th scope="col"></th>
 				    </tr>
@@ -44,7 +43,6 @@
 					      <td>{{ $source->title }}</td>
 					      <td>{{ $source->last_run }}</td>
 					      <td>Last Status</td>
-					      <td>{{ $source->type }}</td>
 					      <td><a href="javascript:void(0)" onclick="getSource({{ $source->id }})">Edit</a></td>
 					      <td><a href="/feeds/{{$source->id}}">Run</a></td>
 					    </tr>
@@ -65,23 +63,13 @@
 	                		<input type="text" class="form-control" name="title" placeholder="Title of Source"/>
 	                	</div>
 	                	<div class="form-group">
-	                		<input type="text" class="form-control" name="google_sheet_id" placeholder="Google Sheet ID"/>
-	                	</div>
-	                	<div class="form-group">
 	                		<input type="text" class="form-control" name="rss_url" placeholder="RSS Feed URL"/>
-	                	</div>
-	                	<div class="form-group">
-	                		<select class="form-control" name="type">
-	                			<option value="rss">rss</option>
-	                			<option value="scrape">scrape</option>
-	                		</select>
 	                	</div>
 	                	<button type="submit" class="btn btn-success">Add Source</button>
 	                </div>
 	            </form>
             </div>
         </div>
-	</div>
 	</div>
 </div>
 
@@ -106,16 +94,7 @@
             		<input type="text" class="form-control" name="title" placeholder="Title of Source" id="title"/>
             	</div>
             	<div class="form-group">
-            		<input type="text" class="form-control" name="google_sheet_id" placeholder="Google Sheet ID" id="sheet-id"/>
-            	</div>
-            	<div class="form-group">
             		<input type="text" class="form-control" name="rss_url" placeholder="RSS Feed URL" id="rss-url"/>
-            	</div>
-            	<div class="form-group">
-            		<select class="form-control" name="type" id="type">
-            			<option value="rss">rss</option>
-            			<option value="scrape">scrape</option>
-            		</select>
             	</div>
 	            
 	      </div>
@@ -127,9 +106,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 
 @endsection
