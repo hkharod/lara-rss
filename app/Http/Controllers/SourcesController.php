@@ -38,7 +38,7 @@ class SourcesController extends Controller
 
 
     /**
-     * Retrieve Source.
+     * Retrieve Source. (Ajax Route)
      *
      * @return boolean
      */
@@ -78,7 +78,7 @@ class SourcesController extends Controller
 
 
     /**
-     * Saved Edited Source
+     * Saved Edited Source.
      *
      * @return boolean
      */
@@ -103,7 +103,7 @@ class SourcesController extends Controller
 
 
     /**
-     * Delete Source
+     * Delete Source.
      *
      * @return boolean
      */
@@ -121,6 +121,28 @@ class SourcesController extends Controller
             return redirect()->back()->with(['fail' => 'Source could not be deleted']);
         }
     
+    }
+
+
+
+     /**
+     * Execute operations from SourceActions Trait.
+     *
+     * @return void
+     */
+    public function executeSource($id)
+    {
+
+        $feed_run = $this->feedRun($id);
+
+        if ($feed_run)
+        {
+            return redirect()->back()->with(['success' => 'Feed Successfully Executed']);
+        } else {
+            return redirect()->back()->with(['fail' => 'Feed could not be executed']);
+        }
+
+       
     }
 
 

@@ -47,7 +47,7 @@
 					      <td>{{ $source->title }}</td>
 					      <td>{{ $source->last_run }}</td>
 					      <td><a href="javascript:void(0)" onclick="getSource({{ $source->id }})">Edit</a></td>
-					      <td><a href="/feeds/{{$source->id}}">Run</a></td>
+					      <td><a href="/source/execute/{{$source->id}}">Run</a></td>
 					    </tr>
 					@endforeach
 				  </tbody>
