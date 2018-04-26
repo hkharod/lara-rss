@@ -30,7 +30,7 @@ class ItemsController extends Controller
     public function index()
     {
 
-        $items = Item::select('id', 'source_title', 'title', 'post_date', 'link', 'post_date')->get();
+        $items = Item::select('id', 'source_title', 'title', 'description', 'author', 'post_date', 'link', 'post_date')->get();
 
         return view('home', compact('items'));
     }

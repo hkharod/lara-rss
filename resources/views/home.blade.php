@@ -25,40 +25,28 @@
             
             <form method="POST" action="/search">
             {{ csrf_field() }}
-                <div class="form-group mb-2">
-                    <input type="text" class="search form-control" name="search" placeholder="Search Jobs"/>
-                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                <div class="row search-bar">
+                  <div class="col-lg-12">
+                    <div class="input-group">
+                      <input type="text" class="form-control" name="search" placeholder="Search for...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Search</button>
+                      </span>
+                    </div>
+                  </div>
                 </div>
             </form>
 
             @foreach($items as $item)
-                <div class="card card-default">
-                    <div class="card-header">
-                        <b>{{ $item->title }}</b><br/>
-                        
-                      
-                        <div class="delete">
-                            <a href="/job/delete/{{$item->id}}">Delete</a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="job">
-                            <div class="heading">
-                                {{ $item->post_date}}<br/>
-                                {{ $item->source_title }}
-                            </div>
-                            <div class="info">
-                                <a href="{{ $item->link }}">URL Link</a> <br/>
-                            </div>
-                            <div class="actions">
-                                <a target="blank" href="/job/emailedit/{{ $item->id }}">View</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="media"> 
+                    <div class="media-body"> 
+                        <a href="{{ $item->link }}"><h4 class="media-heading">{{ $item->title }}</h4></a>
+                        <span class="source-title"> {{ $item->source_title }} </span>
+                        <div class="description">{{ $item->description }}</div> 
+                        <i>Posted {{ $item->post_date }} by {{ $item->author }}</i>
+                    </div> 
                 </div>
-                <br/>
             @endforeach
-
                 
         </div>
     </div>

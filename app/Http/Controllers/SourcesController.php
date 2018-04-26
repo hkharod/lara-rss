@@ -142,15 +142,9 @@ class SourcesController extends Controller
             return redirect()->back()->with(['fail' => 'Feed could not be executed']);
         }
 
-       
     }
 
 
      
-
-
-
-
-
 
 }
