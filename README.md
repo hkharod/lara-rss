@@ -1,4 +1,3 @@
-# Lara RSS
 
 <p align="center">
   <img src="http://harbind.com/images/Lara-RSS.png" alt="Lara RSS"/>
