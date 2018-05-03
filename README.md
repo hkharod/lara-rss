@@ -3,6 +3,7 @@
   <img src="http://harbind.com/images/Lara-RSS.png" alt="Lara RSS"/>
 </p>
 
+*Warning: Do not use this in production. Lara RSS is currently in early development stages*
 
 ## Introduction
 
